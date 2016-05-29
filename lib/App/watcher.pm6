@@ -17,11 +17,7 @@ App::watcher is a Perl6 port of Perl5's L<App::watcher|https://metacpan.org/rele
 
 =head1 TODO
 
-=over 4
-
-=item * recursive
-
-=back
+=item recursive
 
 =head1 AUTHOR
 

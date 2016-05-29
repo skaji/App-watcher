@@ -18,17 +18,7 @@ App::watcher is a Perl6 port of Perl5's [App::watcher](https://metacpan.org/rele
 TODO
 ====
 
-over
-====
-
-4
-
-  * * recursive
-
-back
-====
-
-
+  * recursive
 
 AUTHOR
 ======
