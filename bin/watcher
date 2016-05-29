@@ -1,0 +1,22 @@
+#!/usr/bin/env perl6
+use v6;
+
+sub MAIN(Str :d(:$dir) = ".", *@cmd) {
+    my $watcher = IO::Notification.watch-path($dir).grep: -> $event {
+        my $path = $event.path;
+        my $base = $path.IO.basename;
+        $path !~~ / '.git' / and $base !~~ /^ '.' / and $base !~~ / '~' $/;
+    };
+
+    my $proc;
+    my &restart = sub (|) {
+        $proc.kill if $proc.defined;
+        $proc = Proc::Async.new(|@cmd);
+        $proc.start;
+    };
+    &restart();
+
+    my $done = Promise.new;
+    $watcher.act: &restart, done => { $done.keep(Nil) }, quit => { $done.break($_) };
+    await $done;
+}

@@ -1,0 +1,17 @@
+{
+  "authors" : [
+    "Shoichi Kaji"
+  ],
+  "build-depends" : [ ],
+  "depends" : [ ],
+  "description" : "execute commands when a directory changes",
+  "name" : "App::watcher",
+  "perl" : "6.c",
+  "provides" : {
+    "App::watcher" : "lib/App/watcher.pm6"
+  },
+  "resources" : [ ],
+  "source-url" : "git://github.com/skaji/App-watcher.git",
+  "test-depends" : [ ],
+  "version" : "*"
+}
